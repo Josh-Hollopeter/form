@@ -1,0 +1,40 @@
+<div class="row bg-white container">
+    <form [formGroup]="researchForm">
+       <div class="col-12 my-2">
+          <label for="sample-size" class="col-6 col-lg-2">Sample size: </label>
+          <input id="sample-size" type="text" class="col-6 col-lg-4" formControlName="sampleSize">
+       </div>
+       <div class="col-12 my-2">
+          <label for="sample-mean" class="col-6 col-lg-2">Sample mean: </label>
+          <input id="sample-mean" type="text" class="col-6 col-lg-4" formControlName="sampleMean">
+       </div>
+       <div class="col-12 my-2">
+          <label for="standard-deviation" class="col-6 col-lg-2">Standard deviation: </label>
+          <input id="standard-deviation" type="text" class="col-6 col-lg-4" formControlName="standardDeviation">
+       </div>
+       <div class="col-12 my-2">
+          <div class="col-6 col-lg-12">
+             <input id="hypothesis-test" type="checkbox" formControlName="hypothesisTest">
+             <span class="ms-2">
+             <label for="hypothesis-test">Perform hypothesis test </label>
+             </span>
+          </div>
+       </div>
+       <div class="col-12 my-3">
+          <label for="hypothesized-mean" class="col-6 col-lg-1 ms-5" [ngClass]="{'fade': researchForm.controls['hypothesisTest'].value === false} ">Hypothesized Mean: </label>
+          <input id="hypothesized-mean" type="text" class="col-6 col-lg-4"  [ngClass]="{'gainsboro': researchForm.controls['hypothesisTest'].value === false}" formControlName="hypothesizedMean">
+       </div>
+       <div class="col-12 my-2 text-center">
+          <button type="button" class="mx-2 px-5 btn btn-primary" (click)="submit()">Ok</button>
+          <button type="button" class="mx-2 px-5 btn btn-light border" (click)="resetForm()">Reset</button>
+       </div>
+    </form>
+    <div class="min bg-danger text-white big-font">
+       <div *ngFor="let error of formErrors">
+          <div *ngFor="let control of error | keyvalue">
+             {{control.key + control.value | errorPipe}}
+          </div>
+       </div>
+    </div>
+    <app-research-table [formValues]="formValues"></app-research-table>
+ </div>

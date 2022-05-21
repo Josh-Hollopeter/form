@@ -1,0 +1,28 @@
+
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+  .min{
+    height: 100%;
+    width: 100%;
+   
+  }
+
+  .container{
+    min-width: 75vw;
+    min-height: 75vh;
+  }
+
+  .big-font{
+    font-size: x-large;
+    font-weight: bolder;
+  }
+
+  .fade{
+    opacity: 50%;
+  }
+
+  .gainsboro{
+    background-color: gainsboro;
+  }
